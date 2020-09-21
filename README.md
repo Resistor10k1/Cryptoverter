@@ -1,5 +1,5 @@
 # Cryptoverter
-
+Comment from Dave
 TODO:
 - Create GUI
 - Encoding und Decoding
