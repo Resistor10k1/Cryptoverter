@@ -6,3 +6,6 @@ TODO:
 - GUI mit zwei Textfeldern
 - Texteingabe
 - File Ein- / Ausgabe
+
+
+Teest
