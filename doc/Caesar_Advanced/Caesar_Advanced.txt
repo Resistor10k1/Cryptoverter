@@ -1,0 +1,9 @@
+Caesar-Verschlüsselung:
+
+Verschiebung der Zeichen im Alphabet. Jedoch Verschiebung jedes einzelnen Zeichens.
+
+Zeichen in File = n
+Zeichen an Position a_i
+
+Berechnung des neuen Zeichens:
+
