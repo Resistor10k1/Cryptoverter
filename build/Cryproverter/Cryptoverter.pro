@@ -1,8 +1,13 @@
 QT += widgets uitools
 
 HEADERS = Cryptoverter.h \
+  Algorithm.h \
+  algorithms/Engine.h \
+  algorithms/SimpleDemo.h \
+  algorithms/SimpleTest.h
 
 SOURCES = Cryptoverter.cpp main.cpp \
+  Algorithm.cpp
 
 RESOURCES =
 

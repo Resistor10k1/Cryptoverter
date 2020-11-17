@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>856</width>
-    <height>517</height>
+    <width>1007</width>
+    <height>626</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -37,16 +37,6 @@
        <property name="editable">
         <bool>false</bool>
        </property>
-       <item>
-        <property name="text">
-         <string>AES 128-Bit</string>
-        </property>
-       </item>
-       <item>
-        <property name="text">
-         <string>Test</string>
-        </property>
-       </item>
       </widget>
      </item>
      <item>

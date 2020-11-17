@@ -50,6 +50,8 @@
 
 #include "ui_Cryptoverter.h"
 #include "Cryptoverter.h"
+#include "Algorithm.h"
+
 #include <QFile>
 #include <QLineEdit>
 #include <QComboBox>
@@ -59,20 +61,12 @@
 #include <QVBoxLayout>
 
 
-
 Cryptoverter::Cryptoverter(QWidget *parent) : QWidget(parent), ui(new Ui::Cryptoverter)
 {
-    ui_buttonLoadFile       = findChild<QPushButton*>("buttonLoadFile");
-    ui_buttonSaveFile       = findChild<QPushButton*>("buttonSaveFile");
-    ui_buttonDirection      = findChild<QPushButton*>("buttonDirection");
-    ui_buttonConvert        = findChild<QPushButton*>("buttonConvert");
-    ui_textEditInput        = findChild<QTextEdit*>("plainTextInput");
-    ui_textEditOutput       = findChild<QTextEdit*>("plainTextOutput");
-    ui_textEditDataInfo     = findChild<QTextEdit*>("plainTextDataInfo");
-    ui_lineEditPrivateKey   = findChild<QLineEdit*>("lineEditPrivateKey");
-    ui_comboBoxAlgorithm    = findChild<QComboBox*>("comboBoxAlgorithm");
+  ui->setupUi(this);
 
-    ui->setupUi(this);
+  ui->comboBoxAlgorithm->clear();
+  ui->comboBoxAlgorithm->addItems(algorithm.getNameList());
 }
 
 Cryptoverter::~Cryptoverter ()
@@ -108,4 +102,18 @@ void Cryptoverter::on_buttonDirection_clicked()
 void Cryptoverter::on_buttonConvert_clicked()
 {
 
+}
+
+void Cryptoverter::on_comboBoxAlgorithm_currentIndexChanged(int index)
+{
+  algorithm.setType(index);
+  if (algorithm.hasPrivateKey())       // Check if new selected algorithms has private key
+  {
+    ui->lineEditPrivateKey->setEnabled(true);
+  }
+  else
+  {
+    ui->lineEditPrivateKey->clear();
+    ui->lineEditPrivateKey->setEnabled(false);
+  }
 }
