@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>1007</width>
-    <height>626</height>
+    <width>954</width>
+    <height>596</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -50,7 +50,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>0</height>
+         <height>3</height>
         </size>
        </property>
       </spacer>
@@ -63,7 +63,52 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="lineEditPrivateKey"/>
+      <layout class="QHBoxLayout" name="horizontalLayout_4" stretch="0,0">
+       <property name="spacing">
+        <number>0</number>
+       </property>
+       <property name="sizeConstraint">
+        <enum>QLayout::SetDefaultConstraint</enum>
+       </property>
+       <item>
+        <widget class="QLineEdit" name="lineEditPrivateKey">
+         <property name="sizePolicy">
+          <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+           <horstretch>0</horstretch>
+           <verstretch>0</verstretch>
+          </sizepolicy>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>0</height>
+          </size>
+         </property>
+         <property name="baseSize">
+          <size>
+           <width>0</width>
+           <height>20</height>
+          </size>
+         </property>
+         <property name="echoMode">
+          <enum>QLineEdit::Password</enum>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="buttonPrivateKey">
+         <property name="minimumSize">
+          <size>
+           <width>22</width>
+           <height>22</height>
+          </size>
+         </property>
+         <property name="text">
+          <string/>
+         </property>
+        </widget>
+       </item>
+      </layout>
      </item>
      <item>
       <spacer name="verticalSpacer_2">
@@ -76,7 +121,7 @@
        <property name="sizeHint" stdset="0">
         <size>
          <width>20</width>
-         <height>0</height>
+         <height>3</height>
         </size>
        </property>
       </spacer>
@@ -91,6 +136,36 @@
      <item>
       <widget class="QPlainTextEdit" name="plainTextDataInfo">
        <property name="enabled">
+        <bool>true</bool>
+       </property>
+       <property name="font">
+        <font>
+         <family>Consolas</family>
+         <pointsize>12</pointsize>
+        </font>
+       </property>
+       <property name="focusPolicy">
+        <enum>Qt::NoFocus</enum>
+       </property>
+       <property name="acceptDrops">
+        <bool>false</bool>
+       </property>
+       <property name="autoFillBackground">
+        <bool>true</bool>
+       </property>
+       <property name="verticalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="horizontalScrollBarPolicy">
+        <enum>Qt::ScrollBarAlwaysOff</enum>
+       </property>
+       <property name="undoRedoEnabled">
+        <bool>false</bool>
+       </property>
+       <property name="readOnly">
+        <bool>true</bool>
+       </property>
+       <property name="backgroundVisible">
         <bool>false</bool>
        </property>
       </widget>
@@ -112,7 +187,7 @@
       </spacer>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonDirection">
+      <widget class="QToolButton" name="buttonDirection">
        <property name="sizePolicy">
         <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
          <horstretch>0</horstretch>
@@ -122,7 +197,7 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>90</height>
         </size>
        </property>
        <property name="text">
@@ -131,11 +206,17 @@
       </widget>
      </item>
      <item>
-      <widget class="QPushButton" name="buttonConvert">
+      <widget class="QToolButton" name="buttonConvert">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Minimum" vsizetype="Fixed">
+         <horstretch>0</horstretch>
+         <verstretch>0</verstretch>
+        </sizepolicy>
+       </property>
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>90</height>
         </size>
        </property>
        <property name="text">
@@ -162,6 +243,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="buttonLoadFile">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Load File</string>
        </property>
@@ -176,6 +263,12 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="focusPolicy">
+      <enum>Qt::ClickFocus</enum>
+     </property>
+     <property name="readOnly">
+      <bool>true</bool>
      </property>
     </widget>
    </item>
@@ -196,6 +289,12 @@
      </item>
      <item>
       <widget class="QPushButton" name="buttonSaveFile">
+       <property name="maximumSize">
+        <size>
+         <width>80</width>
+         <height>16777215</height>
+        </size>
+       </property>
        <property name="text">
         <string>Save File</string>
        </property>

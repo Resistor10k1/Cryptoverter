@@ -3,8 +3,8 @@ QT += widgets uitools
 HEADERS = Cryptoverter.h \
   Algorithm.h \
   algorithms/Engine.h \
-  algorithms/SimpleDemo.h \
-  algorithms/SimpleTest.h
+  algorithms/LinearKeyShift.h \
+  algorithms/SimpleDemo.h
 
 SOURCES = Cryptoverter.cpp main.cpp \
   Algorithm.cpp
@@ -18,4 +18,6 @@ else: unix:!android: target.path = /opt/$${TARGET}/bin
 
 FORMS += \
     Cryptoverter.ui
+
+DISTFILES +=
 

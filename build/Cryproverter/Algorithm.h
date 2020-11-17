@@ -3,8 +3,8 @@
 
 #include <QStringList>
 #include "algorithms/Engine.h"
+#include "algorithms/LinearKeyShift.h"
 #include "algorithms/SimpleDemo.h"
-#include "algorithms/SimpleTest.h"
 
 class Algorithm
 {
@@ -15,11 +15,14 @@ class Algorithm
     QString getName (void);
     QStringList getNameList (void);
     bool hasPrivateKey (void);
+    void setPrivateKey (const QString& key);
 
+    QString decrypt (const QString& input);
+    QString encrypt (const QString& input);
 
   private:
-    Engine engine [2] = {SimpleDemo(), SimpleTest()};           // Add here more algorithms
-    const int typeCount = sizeof (engine) / sizeof (Engine);
+    static const int typeCount = 2;                                                 // Set here total algorithms count
+    Engine* engine [typeCount] = {new LinearKeyShift(), new SimpleDemo()};          // Add here more algorithms
 
     int selectedAlgorithm = 0;
 };
