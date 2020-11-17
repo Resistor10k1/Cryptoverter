@@ -11,6 +11,7 @@ class QPushButton;
 class QToolButton;
 class QTextEdit;
 class QComboBox;
+class QFileDialog;
 QT_END_NAMESPACE
 
 
@@ -40,7 +41,7 @@ private:
     Algorithm algorithm;
 
     Mode mode = MODE_ENCRYPT;
-
+    QString inputFileName;
     void showTextInfo (QString input = "");
 };
 

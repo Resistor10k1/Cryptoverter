@@ -10,6 +10,9 @@
 #include <QTextEdit>
 #include <QTextStream>
 #include <QVBoxLayout>
+#include <QFileDialog>
+#include <QTextStream>
+#include <QMessageBox>
 
 Cryptoverter::Cryptoverter(QWidget *parent) : QWidget(parent), ui(new Ui::Cryptoverter)
 {
@@ -31,6 +34,8 @@ Cryptoverter::Cryptoverter(QWidget *parent) : QWidget(parent), ui(new Ui::Crypto
 
   ui->plainTextDataInfo->setStyleSheet("background-color: #F0F0F0"); // Set background color to light gray
   showTextInfo ();
+
+  //QTextStream(stdout) << "GUI Start" << endl;
 }
 
 Cryptoverter::~Cryptoverter ()
@@ -41,12 +46,39 @@ Cryptoverter::~Cryptoverter ()
 
 void Cryptoverter::on_buttonLoadFile_clicked()
 {
-
+  inputFileName = QFileDialog::getOpenFileName(this);
+  if (!inputFileName.isEmpty())
+  {
+    QFile file(inputFileName);
+    if (!file.open(QIODevice::ReadOnly))
+    {
+      QMessageBox::information(this, tr("Unable to open file"),
+      file.errorString());
+      return;
+    }
+    QByteArray content = file.readAll();
+    QTextStream in(&content);
+    in.setCodec("UTF-8");
+    ui->plainTextInput->clear();
+    while (!in.atEnd()) ui->plainTextInput->appendPlainText(in.readLine());
+  }
 }
 
 void Cryptoverter::on_buttonSaveFile_clicked()
 {
-
+  QString inputFileNameEnc = inputFileName;
+  //inputFileNameEnc.insert(inputFileNameEnc.lastIndexOf ('.'), "_enc");
+  QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), inputFileNameEnc);
+  if (!fileName.isEmpty())
+  {
+    QFile file(fileName);
+    if (!file.open(QIODevice::WriteOnly))
+    {
+      QMessageBox::information(this, tr("Unable to open file"), file.errorString());
+      return;
+    }
+    file.write(ui->plainTextOutput->toPlainText().toUtf8());
+  }
 }
 
 void Cryptoverter::on_buttonDirection_clicked()
