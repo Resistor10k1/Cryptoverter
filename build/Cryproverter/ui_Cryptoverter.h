@@ -96,6 +96,7 @@ public:
         sizePolicy.setHeightForWidth(lineEditPrivateKey->sizePolicy().hasHeightForWidth());
         lineEditPrivateKey->setSizePolicy(sizePolicy);
         lineEditPrivateKey->setMinimumSize(QSize(0, 0));
+        lineEditPrivateKey->setMaximumSize(QSize(16777215, 22));
         lineEditPrivateKey->setBaseSize(QSize(0, 20));
         lineEditPrivateKey->setEchoMode(QLineEdit::Password);
 
@@ -103,7 +104,8 @@ public:
 
         buttonPrivateKey = new QToolButton(Cryptoverter);
         buttonPrivateKey->setObjectName(QString::fromUtf8("buttonPrivateKey"));
-        buttonPrivateKey->setMinimumSize(QSize(22, 22));
+        buttonPrivateKey->setMinimumSize(QSize(24, 24));
+        buttonPrivateKey->setMaximumSize(QSize(24, 24));
 
         horizontalLayout_4->addWidget(buttonPrivateKey);
 
@@ -173,7 +175,7 @@ public:
 
         buttonLoadFile = new QPushButton(Cryptoverter);
         buttonLoadFile->setObjectName(QString::fromUtf8("buttonLoadFile"));
-        buttonLoadFile->setMaximumSize(QSize(80, 16777215));
+        buttonLoadFile->setMaximumSize(QSize(120, 16777215));
 
         horizontalLayout->addWidget(buttonLoadFile);
 
@@ -202,7 +204,7 @@ public:
 
         buttonSaveFile = new QPushButton(Cryptoverter);
         buttonSaveFile->setObjectName(QString::fromUtf8("buttonSaveFile"));
-        buttonSaveFile->setMaximumSize(QSize(80, 16777215));
+        buttonSaveFile->setMaximumSize(QSize(120, 16777215));
 
         horizontalLayout_3->addWidget(buttonSaveFile);
 

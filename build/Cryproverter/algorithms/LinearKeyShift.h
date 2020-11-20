@@ -10,13 +10,11 @@ class LinearKeyShift : public Engine
   public:
     LinearKeyShift (void) : Engine ("LinearKeyShift", true) {}
 
-    QString encrypt (const QString& input)
+    bool encrypt (const char* input, char* output, size_t size)
     {
-      QString output;
-      for (int i = 0; i < input.length (); i++)
+      for (size_t i = 0; i < size; i++)
       {
-        QChar qchar (input [i]);
-        char character = qchar.toLatin1();
+        char character = input [i];
         if (character >= 'A' && character <= 'Z')
         {
           character += getKeyShift (privateKey);
@@ -29,16 +27,14 @@ class LinearKeyShift : public Engine
         }
         output[i] = character;
       }
-      return output;
+      return true; // Success
     }
 
-    QString decrypt (const QString& input)
+    bool decrypt (const char* input, char* output, size_t size)
     {
-      QString output;
-      for (int i = 0; i < input.length (); i++)
+      for (size_t i = 0; i < size; i++)
       {
-        QChar qchar (input [i]);
-        char character = qchar.toLatin1();
+        char character = input [i];
         if (character >= 'A' && character <= 'Z')
         {
           character -= getKeyShift (privateKey);
@@ -51,7 +47,7 @@ class LinearKeyShift : public Engine
         }
         output[i] = character;
       }
-      return output;
+      return true; // Success
     }
 
 private:

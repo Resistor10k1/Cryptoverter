@@ -42,6 +42,7 @@ private:
 
     Mode mode = MODE_ENCRYPT;
     QString inputFileName;
+    bool fileLoading = false;         // This is a ugly solution to prevent overwriting of the inputBuffer after the text has changed on the input text field
     void showTextInfo (QString input = "");
 };
 

@@ -56,11 +56,10 @@ void Cryptoverter::on_buttonLoadFile_clicked()
       file.errorString());
       return;
     }
-    QByteArray content = file.readAll();
-    QTextStream in(&content);
-    in.setCodec("UTF-8");
-    ui->plainTextInput->clear();
-    while (!in.atEnd()) ui->plainTextInput->appendPlainText(in.readLine());
+    algorithm.load (file);
+    fileLoading = true;       // Ignore slot "textChanged" from next line
+    ui->plainTextInput->setPlainText(algorithm.showContent (INPUT));
+    // update data info
   }
 }
 
@@ -77,7 +76,8 @@ void Cryptoverter::on_buttonSaveFile_clicked()
       QMessageBox::information(this, tr("Unable to open file"), file.errorString());
       return;
     }
-    file.write(ui->plainTextOutput->toPlainText().toUtf8());
+    algorithm.save (file);
+    //file.write(ui->plainTextOutput->toPlainText().toUtf8());
   }
 }
 
@@ -104,13 +104,15 @@ void Cryptoverter::on_buttonConvert_clicked()
   QString output;
   if (mode == MODE_DECRYPT)
   {
-    output = algorithm.decrypt(input);
+    algorithm.decrypt();
   }
   else
   {
-    output = algorithm.encrypt(input);
+    algorithm.encrypt();
   }
-  ui->plainTextOutput->setPlainText(output);
+
+  ui->plainTextOutput->clear();
+  ui->plainTextOutput->setPlainText(algorithm.showContent (OUTPUT));
 }
 
 void Cryptoverter::on_comboBoxAlgorithm_currentIndexChanged(int index)
@@ -132,7 +134,13 @@ void Cryptoverter::on_comboBoxAlgorithm_currentIndexChanged(int index)
 
 void Cryptoverter::on_plainTextInput_textChanged()
 {
-  showTextInfo (ui->plainTextInput->toPlainText());
+  if (fileLoading)
+  {
+    fileLoading = false;
+    return;
+  }
+  algorithm.load (ui->plainTextInput->toPlainText());
+  // update data info
 }
 
 void Cryptoverter::showTextInfo (QString input)

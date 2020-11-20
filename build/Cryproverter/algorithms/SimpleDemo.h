@@ -10,14 +10,16 @@ class SimpleDemo : public Engine
   public:
     SimpleDemo (void) : Engine ("SimpleDemo", false) {}
 
-    QString encrypt (const QString& input)
+    bool encrypt (const char* input, char* output, size_t size)
     {
-      return input;
+      memcpy (output, input, size);
+      return true; // Success
     }
 
-    QString decrypt (const QString& input)
+    bool decrypt (const char* input, char* output, size_t size)
     {
-      return input;
+      memcpy (output, input, size);
+      return true; // Success
     }
 };
 

@@ -84,6 +84,12 @@
            <height>0</height>
           </size>
          </property>
+         <property name="maximumSize">
+          <size>
+           <width>16777215</width>
+           <height>22</height>
+          </size>
+         </property>
          <property name="baseSize">
           <size>
            <width>0</width>
@@ -99,8 +105,14 @@
         <widget class="QToolButton" name="buttonPrivateKey">
          <property name="minimumSize">
           <size>
-           <width>22</width>
-           <height>22</height>
+           <width>24</width>
+           <height>24</height>
+          </size>
+         </property>
+         <property name="maximumSize">
+          <size>
+           <width>24</width>
+           <height>24</height>
           </size>
          </property>
          <property name="text">
@@ -245,7 +257,7 @@
       <widget class="QPushButton" name="buttonLoadFile">
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>120</width>
          <height>16777215</height>
         </size>
        </property>
@@ -291,7 +303,7 @@
       <widget class="QPushButton" name="buttonSaveFile">
        <property name="maximumSize">
         <size>
-         <width>80</width>
+         <width>120</width>
          <height>16777215</height>
         </size>
        </property>
