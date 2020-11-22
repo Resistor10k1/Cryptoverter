@@ -1,5 +1,4 @@
 #include "Algorithm.h"
-#include <QTextStream>    // For debugging
 
 Algorithm::Algorithm (void)
 {
@@ -36,30 +35,38 @@ void Algorithm::setPrivateKey (const QString& key)
   engine [selectedAlgorithm]->setPrivateKey(key);
 }
 
+void Algorithm::load (void)
+{
+  inputBuffer.clear ();
+  outputBuffer.clear ();
+}
+
 void Algorithm::load (const QString& input)
 {
   inputBuffer.clear ();
   inputBuffer = input.toUtf8 ();
-
-  QTextStream(stdout) << "Imported String" << endl;
-
-  //QTextStream(stdout) << "import String: " << input << endl;
-  //QTextStream(stdout) << "   results is: " << inputBuffer << endl;
 }
 
 void Algorithm::load (QFile& input)
 {
   inputBuffer.clear ();
   inputBuffer = input.readAll ();
-
-  QTextStream(stdout) << "Imported File" << endl;
-
-  //QTextStream(stdout) << "  results is: " << inputBuffer << endl;
 }
 
 void Algorithm::save (QFile& output)
 {
   output.write (outputBuffer);
+}
+
+bool Algorithm::isPrintable (BufferType type)
+{
+  QByteArray& array = (type == INPUT) ? inputBuffer : outputBuffer;
+  for (int i = 0; i < array.size (); i++)
+  {
+    QChar c = array.at (i);
+    if (c.isNonCharacter ()) return false;
+  }
+  return true;
 }
 
 QString Algorithm::showContent (BufferType type)
@@ -69,14 +76,20 @@ QString Algorithm::showContent (BufferType type)
   return QString::fromUtf8(limited);
 }
 
-bool Algorithm::decrypt (void)
+QByteArray& Algorithm::getContent (BufferType type)
 {
-  outputBuffer.resize (inputBuffer.size ());
-  return engine [selectedAlgorithm]->decrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
+  return (type == INPUT) ? inputBuffer : outputBuffer;
 }
 
-bool Algorithm::encrypt (void)
+bool Algorithm::convert (ConversationType type)
 {
   outputBuffer.resize (inputBuffer.size ());
-  return engine [selectedAlgorithm]->encrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
+  if (type == DECRYPT)
+  {
+    return engine [selectedAlgorithm]->decrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
+  }
+  else
+  {
+    return engine [selectedAlgorithm]->encrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
+  }
 }

@@ -33,7 +33,7 @@ Cryptoverter::Cryptoverter(QWidget *parent) : QWidget(parent), ui(new Ui::Crypto
   ui->buttonPrivateKey->setIconSize(QSize(16, 16));
 
   ui->plainTextDataInfo->setStyleSheet("background-color: #F0F0F0"); // Set background color to light gray
-  showTextInfo ();
+  showDataInfo ();
 
   //QTextStream(stdout) << "GUI Start" << endl;
 }
@@ -57,17 +57,24 @@ void Cryptoverter::on_buttonLoadFile_clicked()
       return;
     }
     algorithm.load (file);
-    fileLoading = true;       // Ignore slot "textChanged" from next line
-    ui->plainTextInput->setPlainText(algorithm.showContent (INPUT));
-    // update data info
+    fileLoading = true;                     // Ignore slot "textChanged" from next line
+    if (algorithm.isPrintable (INPUT))      // If content is not printable, dissable text editor
+    {
+      ui->plainTextInput->setEnabled (true);
+      ui->plainTextInput->setPlainText(algorithm.showContent (INPUT));
+    }
+    else
+    {
+      ui->plainTextInput->setEnabled (false);
+      ui->plainTextInput->clear ();
+    }
+    showDataInfo (algorithm.getContent (INPUT), algorithm.isPrintable (INPUT));
   }
 }
 
 void Cryptoverter::on_buttonSaveFile_clicked()
 {
-  QString inputFileNameEnc = inputFileName;
-  //inputFileNameEnc.insert(inputFileNameEnc.lastIndexOf ('.'), "_enc");
-  QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), inputFileNameEnc);
+  QString fileName = QFileDialog::getSaveFileName(this, tr("Save File"), inputFileName);
   if (!fileName.isEmpty())
   {
     QFile file(fileName);
@@ -77,7 +84,6 @@ void Cryptoverter::on_buttonSaveFile_clicked()
       return;
     }
     algorithm.save (file);
-    //file.write(ui->plainTextOutput->toPlainText().toUtf8());
   }
 }
 
@@ -102,23 +108,24 @@ void Cryptoverter::on_buttonConvert_clicked()
   QString input = ui->plainTextInput->toPlainText();
   algorithm.setPrivateKey (ui->lineEditPrivateKey->text());
   QString output;
-  if (mode == MODE_DECRYPT)
+  algorithm.convert ((mode == MODE_DECRYPT) ? DECRYPT : ENCRYPT);
+
+  ui->plainTextOutput->clear ();
+  if (algorithm.isPrintable (OUTPUT))      // If content is not printable, dissable output text editor
   {
-    algorithm.decrypt();
+    ui->plainTextOutput->setEnabled (true);
+    ui->plainTextOutput->setPlainText(algorithm.showContent (OUTPUT));
   }
   else
   {
-    algorithm.encrypt();
+    ui->plainTextOutput->setEnabled (false);
   }
-
-  ui->plainTextOutput->clear();
-  ui->plainTextOutput->setPlainText(algorithm.showContent (OUTPUT));
 }
 
 void Cryptoverter::on_comboBoxAlgorithm_currentIndexChanged(int index)
 {
   algorithm.setType(index);
-  if (algorithm.hasPrivateKey())        // Check if new selected algorithms has private key
+  if (algorithm.hasPrivateKey())          // Check if new selected algorithms has private key
   {
     ui->lineEditPrivateKey->setEnabled(true);
     ui->buttonPrivateKey->setEnabled(true);
@@ -129,7 +136,7 @@ void Cryptoverter::on_comboBoxAlgorithm_currentIndexChanged(int index)
     ui->lineEditPrivateKey->setEnabled(false);
     ui->buttonPrivateKey->setEnabled(false);
   }
-  ui->plainTextOutput->clear();         // Clear the output window if the algorithm has changed
+  ui->plainTextOutput->clear();           // Clear the output window if the algorithm has changed
 }
 
 void Cryptoverter::on_plainTextInput_textChanged()
@@ -140,17 +147,7 @@ void Cryptoverter::on_plainTextInput_textChanged()
     return;
   }
   algorithm.load (ui->plainTextInput->toPlainText());
-  // update data info
-}
-
-void Cryptoverter::showTextInfo (QString input)
-{
-  QString info;
-  info += QString("Symbols:     %1\n").arg (input.length () - input.count ("\n"));
-  info += QString("Characters:  %1\n").arg (input.length ());
-  info += QString("Lines:       %1\n").arg (input.count ("\n"));
-  // @TODO: add more counts
-  ui->plainTextDataInfo->setPlainText(info);
+  showDataInfo (algorithm.getContent (INPUT), algorithm.isPrintable (INPUT));
 }
 
 void Cryptoverter::on_buttonPrivateKey_clicked()
@@ -167,4 +164,25 @@ void Cryptoverter::on_buttonPrivateKey_clicked()
     ui->buttonPrivateKey->setIcon(QIcon("graphics/icon_show.svg"));
     ui->lineEditPrivateKey->setEchoMode(QLineEdit::Password);
   }
+}
+
+void Cryptoverter::on_buttonClear_clicked()
+{
+  algorithm.load ();
+  ui->plainTextInput->clear ();
+  ui->plainTextOutput->clear ();
+  ui->plainTextInput->setEnabled (true);
+  ui->plainTextOutput->setEnabled (true);
+}
+
+void Cryptoverter::showDataInfo (const QByteArray& data, bool printable)
+{
+  QString info;
+  info += QString("Total Size:          %1\n").arg (data.size());
+  info += QString("Regular Characters:  %1\n").arg (printable ? QString::number(QString::fromUtf8(data).count (QRegExp ("[^\\s]"))) : "-");
+  info += QString("Control Characters:  %1\n").arg (printable ? QString::number(QString::fromUtf8(data).count (QRegExp ("[\\s]"))) : "-");
+  info += QString("Lines:               %1\n").arg (printable ? QString::number(QString::fromUtf8(data).count ("\n")) : "-");
+  // Maybe add some more? Any ideas?
+
+  ui->plainTextDataInfo->setPlainText(info);
 }

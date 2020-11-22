@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>954</width>
-    <height>596</height>
+    <width>1214</width>
+    <height>745</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -153,7 +153,7 @@
        <property name="font">
         <font>
          <family>Consolas</family>
-         <pointsize>12</pointsize>
+         <pointsize>10</pointsize>
         </font>
        </property>
        <property name="focusPolicy">
@@ -254,6 +254,19 @@
       </widget>
      </item>
      <item>
+      <widget class="QPushButton" name="buttonClear">
+       <property name="maximumSize">
+        <size>
+         <width>120</width>
+         <height>16777215</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>Clear</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QPushButton" name="buttonLoadFile">
        <property name="maximumSize">
         <size>
@@ -275,6 +288,12 @@
        <horstretch>0</horstretch>
        <verstretch>0</verstretch>
       </sizepolicy>
+     </property>
+     <property name="minimumSize">
+      <size>
+       <width>350</width>
+       <height>0</height>
+      </size>
      </property>
      <property name="focusPolicy">
       <enum>Qt::ClickFocus</enum>
@@ -315,7 +334,14 @@
     </layout>
    </item>
    <item row="1" column="0">
-    <widget class="QPlainTextEdit" name="plainTextInput"/>
+    <widget class="QPlainTextEdit" name="plainTextInput">
+     <property name="minimumSize">
+      <size>
+       <width>350</width>
+       <height>0</height>
+      </size>
+     </property>
+    </widget>
    </item>
   </layout>
  </widget>

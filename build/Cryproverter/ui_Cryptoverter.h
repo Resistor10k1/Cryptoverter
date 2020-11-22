@@ -45,6 +45,7 @@ public:
     QToolButton *buttonConvert;
     QHBoxLayout *horizontalLayout;
     QLabel *label_2;
+    QPushButton *buttonClear;
     QPushButton *buttonLoadFile;
     QPlainTextEdit *plainTextOutput;
     QHBoxLayout *horizontalLayout_3;
@@ -57,7 +58,7 @@ public:
         if (Cryptoverter->objectName().isEmpty())
             Cryptoverter->setObjectName(QString::fromUtf8("Cryptoverter"));
         Cryptoverter->setEnabled(true);
-        Cryptoverter->resize(954, 596);
+        Cryptoverter->resize(1214, 745);
         gridLayout = new QGridLayout(Cryptoverter);
         gridLayout->setObjectName(QString::fromUtf8("gridLayout"));
         verticalLayout_2 = new QVBoxLayout();
@@ -126,7 +127,7 @@ public:
         plainTextDataInfo->setEnabled(true);
         QFont font;
         font.setFamily(QString::fromUtf8("Consolas"));
-        font.setPointSize(12);
+        font.setPointSize(10);
         plainTextDataInfo->setFont(font);
         plainTextDataInfo->setFocusPolicy(Qt::NoFocus);
         plainTextDataInfo->setAcceptDrops(false);
@@ -173,6 +174,12 @@ public:
 
         horizontalLayout->addWidget(label_2);
 
+        buttonClear = new QPushButton(Cryptoverter);
+        buttonClear->setObjectName(QString::fromUtf8("buttonClear"));
+        buttonClear->setMaximumSize(QSize(120, 16777215));
+
+        horizontalLayout->addWidget(buttonClear);
+
         buttonLoadFile = new QPushButton(Cryptoverter);
         buttonLoadFile->setObjectName(QString::fromUtf8("buttonLoadFile"));
         buttonLoadFile->setMaximumSize(QSize(120, 16777215));
@@ -189,6 +196,7 @@ public:
         sizePolicy1.setVerticalStretch(0);
         sizePolicy1.setHeightForWidth(plainTextOutput->sizePolicy().hasHeightForWidth());
         plainTextOutput->setSizePolicy(sizePolicy1);
+        plainTextOutput->setMinimumSize(QSize(350, 0));
         plainTextOutput->setFocusPolicy(Qt::ClickFocus);
         plainTextOutput->setReadOnly(true);
 
@@ -213,6 +221,7 @@ public:
 
         plainTextInput = new QPlainTextEdit(Cryptoverter);
         plainTextInput->setObjectName(QString::fromUtf8("plainTextInput"));
+        plainTextInput->setMinimumSize(QSize(350, 0));
 
         gridLayout->addWidget(plainTextInput, 1, 0, 1, 1);
 
@@ -232,6 +241,7 @@ public:
         buttonDirection->setText(QApplication::translate("Cryptoverter", "Encrypt", nullptr));
         buttonConvert->setText(QApplication::translate("Cryptoverter", "Convert", nullptr));
         label_2->setText(QApplication::translate("Cryptoverter", "Input:", nullptr));
+        buttonClear->setText(QApplication::translate("Cryptoverter", "Clear", nullptr));
         buttonLoadFile->setText(QApplication::translate("Cryptoverter", "Load File", nullptr));
         label->setText(QApplication::translate("Cryptoverter", "Output:", nullptr));
         buttonSaveFile->setText(QApplication::translate("Cryptoverter", "Save File", nullptr));

@@ -17,7 +17,6 @@ QT_END_NAMESPACE
 
 typedef enum {MODE_ENCRYPT, MODE_DECRYPT} Mode;
 
-
 class Cryptoverter : public QWidget
 {
     Q_OBJECT
@@ -35,6 +34,7 @@ private slots:
     void on_comboBoxAlgorithm_currentIndexChanged(int index);
     void on_plainTextInput_textChanged();
     void on_buttonPrivateKey_clicked();
+    void on_buttonClear_clicked();
 
 private:
     Ui::Cryptoverter *ui;
@@ -42,8 +42,8 @@ private:
 
     Mode mode = MODE_ENCRYPT;
     QString inputFileName;
-    bool fileLoading = false;         // This is a ugly solution to prevent overwriting of the inputBuffer after the text has changed on the input text field
-    void showTextInfo (QString input = "");
+    bool fileLoading = false;         // This is an ugly solution to prevent overwriting of the inputBuffer after the text has changed on the input text field
+    void showDataInfo (const QByteArray& data = 0, bool printable = true);
 };
 
 #endif // CRYPTOVERTER_H

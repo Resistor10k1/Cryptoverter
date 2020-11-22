@@ -2,12 +2,15 @@
 #define ALGORITHM_H
 
 #include <QFile>
+#include <QChar>
+#include <QString>
 #include <QStringList>
 #include "algorithms/Engine.h"
 #include "algorithms/LinearKeyShift.h"
 #include "algorithms/SimpleDemo.h"
 
 typedef enum {INPUT, OUTPUT} BufferType;
+typedef enum {DECRYPT, ENCRYPT} ConversationType;
 
 class Algorithm
 {
@@ -19,13 +22,14 @@ class Algorithm
     QStringList getNameList (void);
     bool hasPrivateKey (void);
     void setPrivateKey (const QString& key);
+    void load (void);                                 // For clearing input
     void load (const QString& input);                 // For text import
     void load (QFile& input);                         // For file import
     void save (QFile& output);                        // For file export
+    bool isPrintable (BufferType type);               // Shows if selected buffer has pintable characters
     QString showContent (BufferType type);            // Prepare selected buffer to print its content
-
-    bool decrypt (void);
-    bool encrypt (void);
+    QByteArray& getContent (BufferType type);         // Get access to selected buffer for data inspection
+    bool convert (ConversationType type);
 
   private:
     static const int typeCount = 2;                                                 // Set here total algorithm count
