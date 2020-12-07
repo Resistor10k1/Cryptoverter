@@ -8,6 +8,7 @@
 #include "algorithms/Engine.h"
 #include "algorithms/LinearKeyShift.h"
 #include "algorithms/SimpleDemo.h"
+//#include "algorithms/CaesarEncryption.h"
 
 typedef enum {INPUT, OUTPUT} BufferType;
 typedef enum {DECRYPT, ENCRYPT} ConversationType;
