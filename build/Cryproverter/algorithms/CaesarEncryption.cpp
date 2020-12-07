@@ -31,7 +31,14 @@ CaesarEncryption::~CaesarEncryption()
 
 bool CaesarEncryption::encrypt(const char* input, char* output, size_t size)
 {
-	memcpy (output, input, size);
+	//memcpy (output, input, size);
+	
+	for(int i=0; i<size; ++i)
+	{
+		
+	}
+	
+	
 	return false;
 }
 
@@ -39,4 +46,10 @@ bool CaesarEncryption::decrypt(const char* input, char* output, size_t size)
 {
 	memcpy (output, input, size);
 	return false;
+}
+
+
+int CaesarEncryption::getShift(int index)
+{
+	return 0;
 }
