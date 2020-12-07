@@ -1,34 +1,53 @@
 /*
 * Name: CaesarEncryption.h
 * Author: Andri Trottmann
-* Date: 26.11.20
+* Date: 07.12.20
 */
 
 
 #ifndef CAESARENCRYPTION_H
 #define CAESARENCRYPTION_H
 
-class CaesarEncryption
+#include "Engine.h"
+
+class CaesarEncryption : public Engine
 {
 	public:
-		CaesarEncryption(const char* newCharSet = null, int length = 0);
-		/*
-		* Constructor
-		* param:
-		*	newCharSet: Neue Zeichen-Sammlung für die Verschlüsselung
-		*	length: Länge des newCharSet-Arrays
-		*/
+	
+		///
+		///\brief Constructor
+		///\param newCharColl New character collection for the encryption. A text can (but don't has to) contain these characters.
+		///					  The user of this class must know which characters appear in the text to encrypt.
+		///\param length Length of the newCharColl Array.
+		///
+		CaesarEncryption(const char* newCharColl, int length);
 		
+		///
+		///\brief Destructor
+		///
 		~CaesarEncryption();
-		/*
-		* Destructor
-		* param: none
-		*/
 		
+		///
+		///\brief
+		///\param
+		///\param
+		///\param
+		///
+		bool encrypt(const char* input, char* output, size_t size) override;
+		
+		///
+		///\brief
+		///\param
+		///\param
+		///\param
+		///
+		bool decrypt(const char* input, char* output, size_t size) override;
 		
 		
 	private:
-	char* charSet;
+	char* pCharColl;
+	int charCollLength;
+	//const char charSetStd[26] = {};
 };
 
 #endif // CAESARENCRYPTION_H
