@@ -64,7 +64,8 @@ bool Algorithm::isPrintable (BufferType type)
   for (int i = 0; i < array.size (); i++)
   {
     QChar c = array.at (i);
-    if (c.isNonCharacter ()) return false;
+    if (c.isNull ()) return true;
+    if (!c.isSpace () && (c.isNonCharacter () || !c.isPrint ())) return false;
   }
   return true;
 }
@@ -83,13 +84,14 @@ QByteArray& Algorithm::getContent (BufferType type)
 
 bool Algorithm::convert (ConversationType type)
 {
-  outputBuffer.resize (inputBuffer.size ());
   if (type == DECRYPT)
   {
+    outputBuffer.resize (engine [selectedAlgorithm]->getDecryptedSize (inputBuffer.size ()));
     return engine [selectedAlgorithm]->decrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
   }
   else
   {
+    outputBuffer.resize (engine [selectedAlgorithm]->getEncryptedSize (inputBuffer.size ()));
     return engine [selectedAlgorithm]->encrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
   }
 }

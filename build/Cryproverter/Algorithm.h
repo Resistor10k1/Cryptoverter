@@ -5,10 +5,12 @@
 #include <QChar>
 #include <QString>
 #include <QStringList>
+#include <QTextStream>
 #include "algorithms/Engine.h"
 #include "algorithms/LinearKeyShift.h"
 #include "algorithms/SimpleDemo.h"
 //#include "algorithms/CaesarEncryption.h"
+#include "algorithms/AES.h"
 
 typedef enum {INPUT, OUTPUT} BufferType;
 typedef enum {DECRYPT, ENCRYPT} ConversationType;
@@ -33,8 +35,12 @@ class Algorithm
     bool convert (ConversationType type);
 
   private:
-    static const int typeCount = 2;                                                 // Set here total algorithm count
-    Engine* engine [typeCount] = {new LinearKeyShift(), new SimpleDemo()};          // Add here more algorithms
+    static const int typeCount = 5;                   // Set here total algorithm count and add them in following array
+    Engine* engine [typeCount] = {new AES(128),
+                                  new AES(192),
+                                  new AES(256),
+                                  new LinearKeyShift(),
+                                  new SimpleDemo()};
 
     int selectedAlgorithm = 0;
     QByteArray inputBuffer, outputBuffer;
