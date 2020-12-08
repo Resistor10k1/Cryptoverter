@@ -6,6 +6,7 @@ HEADERS = Cryptoverter.h \
   algorithms/CaesarEncryption.h \
   algorithms/Engine.h \
   algorithms/LinearKeyShift.h \
+  algorithms/SHA256.h \
   algorithms/SimpleDemo.h
 
 SOURCES = Cryptoverter.cpp main.cpp \

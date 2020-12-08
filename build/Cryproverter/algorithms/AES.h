@@ -9,6 +9,7 @@
 
 #include <QString>
 #include <QChar>
+#include "SHA256.h"
 #include "Engine.h"
 
 using namespace std;
@@ -54,13 +55,12 @@ private:
   void createAesKey (const QString& key)
   {
     memset (privateKeyHash, 0, sizeof (privateKeyHash));
-
-    // Replace with SHA-256
-    for (int i = 0; i < key.length (); i++)
-    {
-      QChar qchar (key [i]);
-      privateKeyHash [i] = qchar.toLatin1();
-    }
+    SHA256 sha;
+    sha.update (key.toStdString ());
+    uint8_t* digest = sha.digest();
+    memcpy (privateKeyHash, digest, sizeof (privateKeyHash));
+    delete[] digest;
+    //std::cout << SHA256::toString(digest) << std::endl;
   }
 
   void SubBytes(unsigned char **state);
