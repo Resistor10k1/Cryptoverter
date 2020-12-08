@@ -1,0 +1,170 @@
+\hypertarget{class_engine}{}\doxysection{Engine Class Reference}
+\label{class_engine}\index{Engine@{Engine}}
+Inheritance diagram for Engine\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_engine}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_engine_aa42670d6b8823cccebc30901d90fef6a}{Engine}} (Q\+String n, bool key)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_engine_a683820aede76dbc588b0396844096b04}{set\+Private\+Key}} (const Q\+String \&key)
+\begin{DoxyCompactList}\small\item\em Sets the private key. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_engine_a2696fc0a6974da6256920bd3a9148a61}{get\+Encrypted\+Size}} (int input\+Size)
+\begin{DoxyCompactList}\small\item\em Get size of encrypted data based on input buffer. \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_engine_ac0e0a0726c6cbf2478e2eabe84527dec}{get\+Decrypted\+Size}} (int input\+Size)
+\begin{DoxyCompactList}\small\item\em Get size of decrypted data based on input buffer. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_engine_ae0d5d15d1b7829fe42532d2f2bbbee84}{encrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size)=0
+\begin{DoxyCompactList}\small\item\em Encrypts data from input buffer. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_engine_a04cc7c568562df7ff9eb541f6b519e46}{decrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size)=0
+\begin{DoxyCompactList}\small\item\em Decrypts data from input buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_engine_a61d6fdcb1c51239f344bb5e322f1e268}\label{class_engine_a61d6fdcb1c51239f344bb5e322f1e268}} 
+Q\+String {\bfseries name}
+\item 
+\mbox{\Hypertarget{class_engine_ad710e0669ea7b606c27f684906636475}\label{class_engine_ad710e0669ea7b606c27f684906636475}} 
+Q\+String {\bfseries private\+Key}
+\item 
+\mbox{\Hypertarget{class_engine_a98d57ff24a3612cdc413df5ab527598a}\label{class_engine_a98d57ff24a3612cdc413df5ab527598a}} 
+const bool {\bfseries has\+Private\+Key}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_engine_aa42670d6b8823cccebc30901d90fef6a}\label{class_engine_aa42670d6b8823cccebc30901d90fef6a}} 
+\index{Engine@{Engine}!Engine@{Engine}}
+\index{Engine@{Engine}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{Engine()}{Engine()}}
+{\footnotesize\ttfamily Engine\+::\+Engine (\begin{DoxyParamCaption}\item[{Q\+String}]{n,  }\item[{bool}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & String with algorythm name \\
+\hline
+{\em key} & Specifies if algorythm has private key \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_engine_a04cc7c568562df7ff9eb541f6b519e46}\label{class_engine_a04cc7c568562df7ff9eb541f6b519e46}} 
+\index{Engine@{Engine}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily virtual bool Engine\+::decrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Decrypts data from input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input buffer \\
+\hline
+{\em output} & Output buffer \\
+\hline
+{\em size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+conversation result (true if successful) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_caesar_encryption_ac3726fd815796bf3c190c69dde15e8bf}{Caesar\+Encryption}}, \mbox{\hyperlink{class_a_e_s_a129d9acea3a9cbc470664e5326865b57}{A\+ES}}, \mbox{\hyperlink{class_simple_demo_ad79294f2051c3b7c026c212701a256a6}{Simple\+Demo}}, and \mbox{\hyperlink{class_linear_key_shift_ac5664164ebfd92f26cb2adf571a6fcd6}{Linear\+Key\+Shift}}.
+
+\mbox{\Hypertarget{class_engine_ae0d5d15d1b7829fe42532d2f2bbbee84}\label{class_engine_ae0d5d15d1b7829fe42532d2f2bbbee84}} 
+\index{Engine@{Engine}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily virtual bool Engine\+::encrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Encrypts data from input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input buffer \\
+\hline
+{\em output} & Output buffer \\
+\hline
+{\em size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+conversation result (true if successful) 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{class_caesar_encryption_a269bd8efb767e4624a27c9e14a9772a1}{Caesar\+Encryption}}, \mbox{\hyperlink{class_a_e_s_a956bcc14baee462a539b91ae297ba70c}{A\+ES}}, \mbox{\hyperlink{class_simple_demo_aa76ec89e390d2e7b0b18b23622ce8a62}{Simple\+Demo}}, and \mbox{\hyperlink{class_linear_key_shift_ab904855de5c5be63f6944fafe2be74e6}{Linear\+Key\+Shift}}.
+
+\mbox{\Hypertarget{class_engine_ac0e0a0726c6cbf2478e2eabe84527dec}\label{class_engine_ac0e0a0726c6cbf2478e2eabe84527dec}} 
+\index{Engine@{Engine}!getDecryptedSize@{getDecryptedSize}}
+\index{getDecryptedSize@{getDecryptedSize}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getDecryptedSize()}{getDecryptedSize()}}
+{\footnotesize\ttfamily virtual int Engine\+::get\+Decrypted\+Size (\begin{DoxyParamCaption}\item[{int}]{input\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get size of decrypted data based on input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output\+Size of decrypted data 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_engine_a2696fc0a6974da6256920bd3a9148a61}\label{class_engine_a2696fc0a6974da6256920bd3a9148a61}} 
+\index{Engine@{Engine}!getEncryptedSize@{getEncryptedSize}}
+\index{getEncryptedSize@{getEncryptedSize}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{getEncryptedSize()}{getEncryptedSize()}}
+{\footnotesize\ttfamily virtual int Engine\+::get\+Encrypted\+Size (\begin{DoxyParamCaption}\item[{int}]{input\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Get size of encrypted data based on input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output\+Size of encrypted data 
+\end{DoxyReturn}
+
+
+Reimplemented in \mbox{\hyperlink{class_a_e_s_a1b30cdda74547af13339513e25155dcf}{A\+ES}}.
+
+\mbox{\Hypertarget{class_engine_a683820aede76dbc588b0396844096b04}\label{class_engine_a683820aede76dbc588b0396844096b04}} 
+\index{Engine@{Engine}!setPrivateKey@{setPrivateKey}}
+\index{setPrivateKey@{setPrivateKey}!Engine@{Engine}}
+\doxysubsubsection{\texorpdfstring{setPrivateKey()}{setPrivateKey()}}
+{\footnotesize\ttfamily void Engine\+::set\+Private\+Key (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{key }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the private key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Private Key as a character string \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+algorithms/\mbox{\hyperlink{_engine_8h}{Engine.\+h}}\end{DoxyCompactItemize}

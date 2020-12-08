@@ -1,0 +1,96 @@
+\hypertarget{class_caesar_encryption}{}\doxysection{Caesar\+Encryption Class Reference}
+\label{class_caesar_encryption}\index{CaesarEncryption@{CaesarEncryption}}
+Inheritance diagram for Caesar\+Encryption\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_caesar_encryption}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_caesar_encryption_a09c110d4d4337ce39d5618db9e94b4d4}{Caesar\+Encryption}} (const char $\ast$new\+Char\+Coll=nullptr, int length=0)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_caesar_encryption_a3dcf4837784f4c70ef97efd911480849}\label{class_caesar_encryption_a3dcf4837784f4c70ef97efd911480849}} 
+\mbox{\hyperlink{class_caesar_encryption_a3dcf4837784f4c70ef97efd911480849}{$\sim$\+Caesar\+Encryption}} ()
+\begin{DoxyCompactList}\small\item\em Destructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_caesar_encryption_a269bd8efb767e4624a27c9e14a9772a1}{encrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Encrypts the input and writes the encrypted data into the output. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_caesar_encryption_ac3726fd815796bf3c190c69dde15e8bf}{decrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Decrypts the input and writes the decrypted data into the output. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_caesar_encryption_a09c110d4d4337ce39d5618db9e94b4d4}\label{class_caesar_encryption_a09c110d4d4337ce39d5618db9e94b4d4}} 
+\index{CaesarEncryption@{CaesarEncryption}!CaesarEncryption@{CaesarEncryption}}
+\index{CaesarEncryption@{CaesarEncryption}!CaesarEncryption@{CaesarEncryption}}
+\doxysubsubsection{\texorpdfstring{CaesarEncryption()}{CaesarEncryption()}}
+{\footnotesize\ttfamily Caesar\+Encryption\+::\+Caesar\+Encryption (\begin{DoxyParamCaption}\item[{const char $\ast$}]{new\+Char\+Coll = {\ttfamily nullptr},  }\item[{int}]{length = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em new\+Char\+Coll} & New character collection for the encryption. A text can (but don\textquotesingle{}t has to) contain these characters. The user of this class must know which characters appear in the text to encrypt. \\
+\hline
+{\em length} & Length of the new\+Char\+Coll Array. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_caesar_encryption_ac3726fd815796bf3c190c69dde15e8bf}\label{class_caesar_encryption_ac3726fd815796bf3c190c69dde15e8bf}} 
+\index{CaesarEncryption@{CaesarEncryption}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!CaesarEncryption@{CaesarEncryption}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily bool Caesar\+Encryption\+::decrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decrypts the input and writes the decrypted data into the output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The data which has to be decrypted. \\
+\hline
+{\em output} & The deyrypted data \\
+\hline
+{\em size} & The size of the arrays \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_engine_a04cc7c568562df7ff9eb541f6b519e46}{Engine}}.
+
+\mbox{\Hypertarget{class_caesar_encryption_a269bd8efb767e4624a27c9e14a9772a1}\label{class_caesar_encryption_a269bd8efb767e4624a27c9e14a9772a1}} 
+\index{CaesarEncryption@{CaesarEncryption}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!CaesarEncryption@{CaesarEncryption}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily bool Caesar\+Encryption\+::encrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encrypts the input and writes the encrypted data into the output. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & The data which has to be encrypted. \\
+\hline
+{\em output} & The enyrypted data \\
+\hline
+{\em size} & The size of the arrays \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_engine_ae0d5d15d1b7829fe42532d2f2bbbee84}{Engine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+algorithms/Caesar\+Encryption.\+h\item 
+algorithms/Caesar\+Encryption.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,233 @@
+\hypertarget{class_algorithm}{}\doxysection{Algorithm Class Reference}
+\label{class_algorithm}\index{Algorithm@{Algorithm}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_algorithm_a8c2478c53f3d174ac649e6c32152cad3}\label{class_algorithm_a8c2478c53f3d174ac649e6c32152cad3}} 
+\mbox{\hyperlink{class_algorithm_a8c2478c53f3d174ac649e6c32152cad3}{Algorithm}} (void)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_algorithm_ac65ceab701300ca470509e54f8973fd4}{set\+Type}} (int index=0)
+\begin{DoxyCompactList}\small\item\em Selects a specific algorithm by its numeric index. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_algorithm_a5db7a83ba8cbb909e0d539e50023dff7}{get\+Name}} (void)
+\begin{DoxyCompactList}\small\item\em Returns the name of the selected algorithm. \end{DoxyCompactList}\item 
+Q\+String\+List \mbox{\hyperlink{class_algorithm_ad1198a9f2a686aef4dfe6c395bb25e19}{get\+Name\+List}} (void)
+\begin{DoxyCompactList}\small\item\em Returns a list of names of all algorithms. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_algorithm_a519bf021213334a72cb69c4c7d732242}{has\+Private\+Key}} (void)
+\begin{DoxyCompactList}\small\item\em Checks if currently active algorithm has a private key. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_algorithm_a04d379fc2075d12927d369c5e5a4a8d7}{set\+Private\+Key}} (const Q\+String \&key)
+\begin{DoxyCompactList}\small\item\em Sets the private key. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_algorithm_a1acb8fe75a346d48f13893cb3f41597f}\label{class_algorithm_a1acb8fe75a346d48f13893cb3f41597f}} 
+void \mbox{\hyperlink{class_algorithm_a1acb8fe75a346d48f13893cb3f41597f}{load}} (void)
+\begin{DoxyCompactList}\small\item\em Loads empty data into buffers (cleares them) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_algorithm_ab54369d81bdc9e3ec9a29ae7361897ce}{load}} (const Q\+String \&input)
+\begin{DoxyCompactList}\small\item\em Loads a string into input buffer (text import) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_algorithm_abdf7bc4de5c31b4d254c89592ef68138}{load}} (Q\+File \&input)
+\begin{DoxyCompactList}\small\item\em Loads a file into input buffer (file import) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_algorithm_abb07d9c7db91c2ae3fbcbdf277ac31c7}{save}} (Q\+File \&output)
+\begin{DoxyCompactList}\small\item\em Saves a file from output buffer (file export) \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_algorithm_ac06fda4abdc51530f2c2b1c509c86f3e}\label{class_algorithm_ac06fda4abdc51530f2c2b1c509c86f3e}} 
+void \mbox{\hyperlink{class_algorithm_ac06fda4abdc51530f2c2b1c509c86f3e}{copy\+Output\+To\+Input}} (void)
+\begin{DoxyCompactList}\small\item\em Copys the output buffer to the input buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_algorithm_ac4f6bf23887b55d911fb5f4ba7d08cfd}{is\+Printable}} (Buffer\+Type type)
+\begin{DoxyCompactList}\small\item\em Shows if selected buffer has pintable characters. \end{DoxyCompactList}\item 
+Q\+String \mbox{\hyperlink{class_algorithm_afc806c09614f71dd9083e53b3d94a201}{show\+Content}} (Buffer\+Type type)
+\begin{DoxyCompactList}\small\item\em Prepare selected buffer to print its content. \end{DoxyCompactList}\item 
+Q\+Byte\+Array \& \mbox{\hyperlink{class_algorithm_a69177023a161868dbe1a20f66adffed5}{get\+Content}} (Buffer\+Type type)
+\begin{DoxyCompactList}\small\item\em Get access to selected buffer for data inspection. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_algorithm_ac8818b7d5fe5c1a8f8f216f7c1d8d36d}{convert}} (Conversation\+Type type)
+\begin{DoxyCompactList}\small\item\em Starts encryption or decryption. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_algorithm_ac8818b7d5fe5c1a8f8f216f7c1d8d36d}\label{class_algorithm_ac8818b7d5fe5c1a8f8f216f7c1d8d36d}} 
+\index{Algorithm@{Algorithm}!convert@{convert}}
+\index{convert@{convert}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{convert()}{convert()}}
+{\footnotesize\ttfamily bool Algorithm\+::convert (\begin{DoxyParamCaption}\item[{Conversation\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Starts encryption or decryption. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Selected conversation type \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true if conversation was successful 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_a69177023a161868dbe1a20f66adffed5}\label{class_algorithm_a69177023a161868dbe1a20f66adffed5}} 
+\index{Algorithm@{Algorithm}!getContent@{getContent}}
+\index{getContent@{getContent}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{getContent()}{getContent()}}
+{\footnotesize\ttfamily Q\+Byte\+Array \& Algorithm\+::get\+Content (\begin{DoxyParamCaption}\item[{Buffer\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Get access to selected buffer for data inspection. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Selected Buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+array reference 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_a5db7a83ba8cbb909e0d539e50023dff7}\label{class_algorithm_a5db7a83ba8cbb909e0d539e50023dff7}} 
+\index{Algorithm@{Algorithm}!getName@{getName}}
+\index{getName@{getName}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{getName()}{getName()}}
+{\footnotesize\ttfamily Q\+String Algorithm\+::get\+Name (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns the name of the selected algorithm. 
+
+\begin{DoxyReturn}{Returns}
+Name 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_ad1198a9f2a686aef4dfe6c395bb25e19}\label{class_algorithm_ad1198a9f2a686aef4dfe6c395bb25e19}} 
+\index{Algorithm@{Algorithm}!getNameList@{getNameList}}
+\index{getNameList@{getNameList}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{getNameList()}{getNameList()}}
+{\footnotesize\ttfamily Q\+String\+List Algorithm\+::get\+Name\+List (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Returns a list of names of all algorithms. 
+
+\begin{DoxyReturn}{Returns}
+Namelist 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_a519bf021213334a72cb69c4c7d732242}\label{class_algorithm_a519bf021213334a72cb69c4c7d732242}} 
+\index{Algorithm@{Algorithm}!hasPrivateKey@{hasPrivateKey}}
+\index{hasPrivateKey@{hasPrivateKey}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{hasPrivateKey()}{hasPrivateKey()}}
+{\footnotesize\ttfamily bool Algorithm\+::has\+Private\+Key (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Checks if currently active algorithm has a private key. 
+
+\begin{DoxyReturn}{Returns}
+has\+Key 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_ac4f6bf23887b55d911fb5f4ba7d08cfd}\label{class_algorithm_ac4f6bf23887b55d911fb5f4ba7d08cfd}} 
+\index{Algorithm@{Algorithm}!isPrintable@{isPrintable}}
+\index{isPrintable@{isPrintable}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{isPrintable()}{isPrintable()}}
+{\footnotesize\ttfamily bool Algorithm\+::is\+Printable (\begin{DoxyParamCaption}\item[{Buffer\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Shows if selected buffer has pintable characters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Selected Buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+is\+Printable 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_algorithm_ab54369d81bdc9e3ec9a29ae7361897ce}\label{class_algorithm_ab54369d81bdc9e3ec9a29ae7361897ce}} 
+\index{Algorithm@{Algorithm}!load@{load}}
+\index{load@{load}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Algorithm\+::load (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Loads a string into input buffer (text import) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input as a string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_abdf7bc4de5c31b4d254c89592ef68138}\label{class_algorithm_abdf7bc4de5c31b4d254c89592ef68138}} 
+\index{Algorithm@{Algorithm}!load@{load}}
+\index{load@{load}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{load()}{load()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Algorithm\+::load (\begin{DoxyParamCaption}\item[{Q\+File \&}]{input }\end{DoxyParamCaption})}
+
+
+
+Loads a file into input buffer (file import) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input as a binary file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_abb07d9c7db91c2ae3fbcbdf277ac31c7}\label{class_algorithm_abb07d9c7db91c2ae3fbcbdf277ac31c7}} 
+\index{Algorithm@{Algorithm}!save@{save}}
+\index{save@{save}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{save()}{save()}}
+{\footnotesize\ttfamily void Algorithm\+::save (\begin{DoxyParamCaption}\item[{Q\+File \&}]{output }\end{DoxyParamCaption})}
+
+
+
+Saves a file from output buffer (file export) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em output} & Output as a binary file \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_a04d379fc2075d12927d369c5e5a4a8d7}\label{class_algorithm_a04d379fc2075d12927d369c5e5a4a8d7}} 
+\index{Algorithm@{Algorithm}!setPrivateKey@{setPrivateKey}}
+\index{setPrivateKey@{setPrivateKey}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{setPrivateKey()}{setPrivateKey()}}
+{\footnotesize\ttfamily void Algorithm\+::set\+Private\+Key (\begin{DoxyParamCaption}\item[{const Q\+String \&}]{key }\end{DoxyParamCaption})}
+
+
+
+Sets the private key. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key} & Password as a string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_ac65ceab701300ca470509e54f8973fd4}\label{class_algorithm_ac65ceab701300ca470509e54f8973fd4}} 
+\index{Algorithm@{Algorithm}!setType@{setType}}
+\index{setType@{setType}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{setType()}{setType()}}
+{\footnotesize\ttfamily void Algorithm\+::set\+Type (\begin{DoxyParamCaption}\item[{int}]{index = {\ttfamily 0} }\end{DoxyParamCaption})}
+
+
+
+Selects a specific algorithm by its numeric index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & Integer value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_algorithm_afc806c09614f71dd9083e53b3d94a201}\label{class_algorithm_afc806c09614f71dd9083e53b3d94a201}} 
+\index{Algorithm@{Algorithm}!showContent@{showContent}}
+\index{showContent@{showContent}!Algorithm@{Algorithm}}
+\doxysubsubsection{\texorpdfstring{showContent()}{showContent()}}
+{\footnotesize\ttfamily Q\+String Algorithm\+::show\+Content (\begin{DoxyParamCaption}\item[{Buffer\+Type}]{type }\end{DoxyParamCaption})}
+
+
+
+Prepare selected buffer to print its content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em type} & Selected Buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+string to display 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_algorithm_8h}{Algorithm.\+h}}\item 
+\mbox{\hyperlink{_algorithm_8cpp}{Algorithm.\+cpp}}\end{DoxyCompactItemize}
