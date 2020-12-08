@@ -23,6 +23,11 @@ CaesarEncryption::CaesarEncryption(const char* newCharColl, int length)
 		
 		charCollLength = length;
 	}
+	else
+	{
+		pCharColl = &stdCharColl;
+		charCollLength = stdCharCollSize;
+	}
 }
 	
 CaesarEncryption::~CaesarEncryption()
@@ -34,14 +39,24 @@ CaesarEncryption::~CaesarEncryption()
 bool CaesarEncryption::encrypt(const char* input, char* output, size_t size)
 {
 	//memcpy (output, input, size);
+	int index = 0;
 	
 	for(int i=0; i<size; ++i)
 	{
+		for(int c=0; c<charCollLength; ++c)
+		{
+			if(pCharColl[c] == input[c])
+			{
+				index = c;
+				break;
+			}
+		}
 		
+		output[i] = pCharColl[getShift(index)];
 	}
 	
 	
-	return false;
+	return true;
 }
 
 bool CaesarEncryption::decrypt(const char* input, char* output, size_t size)
