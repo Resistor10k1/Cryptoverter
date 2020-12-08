@@ -9,7 +9,7 @@
 #include "algorithms/Engine.h"
 #include "algorithms/LinearKeyShift.h"
 #include "algorithms/SimpleDemo.h"
-//#include "algorithms/CaesarEncryption.h"
+#include "algorithms/CaesarEncryption.h"
 #include "algorithms/AES.h"
 
 typedef enum {INPUT, OUTPUT} BufferType;
@@ -35,10 +35,11 @@ class Algorithm
     bool convert (ConversationType type);
 
   private:
-    static const int typeCount = 5;                   // Set here total algorithm count and add them in following array
+    static const int typeCount = 6;                   // Set here total algorithm count and add them in following array
     Engine* engine [typeCount] = {new AES(128),
                                   new AES(192),
                                   new AES(256),
+                                  new CaesarEncryption(),
                                   new LinearKeyShift(),
                                   new SimpleDemo()};
 

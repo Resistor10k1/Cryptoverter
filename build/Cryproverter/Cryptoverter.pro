@@ -3,13 +3,15 @@ QT += widgets uitools
 HEADERS = Cryptoverter.h \
   Algorithm.h \
   algorithms/AES.h \
+  algorithms/CaesarEncryption.h \
   algorithms/Engine.h \
   algorithms/LinearKeyShift.h \
   algorithms/SimpleDemo.h
 
 SOURCES = Cryptoverter.cpp main.cpp \
   Algorithm.cpp \
-  algorithms/AES.cpp
+  algorithms/AES.cpp \
+  algorithms/CaesarEncryption.cpp
 
 RESOURCES =
 

@@ -9,10 +9,12 @@
 #include "CaesarEncryption.h"
 
 CaesarEncryption::CaesarEncryption(const char* newCharColl, int length)
-								: Engine ("CaesarEncryption", false)
+                                : Engine ("Caesar Encryption", false)
 {
-	if(newCharColl != null)
+    name = "Caesar Encryption (Default)";
+    if(newCharColl != nullptr)
 	{	
+        name = "Caesar Encryption (Custom Character Set)";
 		pCharColl = new char[length];
 		for(int i=0; i<length; ++i)
 		{

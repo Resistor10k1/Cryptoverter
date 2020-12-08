@@ -87,11 +87,13 @@ bool Algorithm::convert (ConversationType type)
   if (type == DECRYPT)
   {
     outputBuffer.resize (engine [selectedAlgorithm]->getDecryptedSize (inputBuffer.size ()));
+    memset (outputBuffer.data (), 0, outputBuffer.size ());
     return engine [selectedAlgorithm]->decrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
   }
   else
   {
     outputBuffer.resize (engine [selectedAlgorithm]->getEncryptedSize (inputBuffer.size ()));
+    memset (outputBuffer.data (), 0, outputBuffer.size ());
     return engine [selectedAlgorithm]->encrypt(inputBuffer.constData (), outputBuffer.data (), inputBuffer.size ());
   }
 }

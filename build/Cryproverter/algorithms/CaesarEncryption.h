@@ -20,7 +20,7 @@ class CaesarEncryption : public Engine
 		///					  The user of this class must know which characters appear in the text to encrypt.
 		///\param length Length of the newCharColl Array.
 		///
-		CaesarEncryption(const char* newCharColl, int length);
+        CaesarEncryption(const char* newCharColl = nullptr, int length = 0);
 		
 		///
 		///\brief Destructor
