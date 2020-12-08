@@ -1,0 +1,121 @@
+\hypertarget{class_a_e_s}{}\doxysection{A\+ES Class Reference}
+\label{class_a_e_s}\index{AES@{AES}}
+Inheritance diagram for A\+ES\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_a_e_s}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_a_e_s_aec68f4ebf51ad97205de025b809ef62d}{A\+ES}} (int key\+Len=128)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_e_s_a956bcc14baee462a539b91ae297ba70c}{encrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Encrypts data from input buffer. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_a_e_s_a129d9acea3a9cbc470664e5326865b57}{decrypt}} (const char $\ast$input, char $\ast$output, size\+\_\+t size) override
+\begin{DoxyCompactList}\small\item\em Decrypts data from input buffer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_a_e_s_a1b30cdda74547af13339513e25155dcf}{get\+Encrypted\+Size}} (int input\+Size) override
+\begin{DoxyCompactList}\small\item\em Get size of encrypted data based on input buffer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_a_e_s_aec68f4ebf51ad97205de025b809ef62d}\label{class_a_e_s_aec68f4ebf51ad97205de025b809ef62d}} 
+\index{AES@{AES}!AES@{AES}}
+\index{AES@{AES}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{AES()}{AES()}}
+{\footnotesize\ttfamily A\+E\+S\+::\+A\+ES (\begin{DoxyParamCaption}\item[{int}]{key\+Len = {\ttfamily 128} }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em key\+Len} & Selects the \mbox{\hyperlink{class_a_e_s}{A\+ES}} Key length (128, 192, 256) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_a_e_s_a129d9acea3a9cbc470664e5326865b57}\label{class_a_e_s_a129d9acea3a9cbc470664e5326865b57}} 
+\index{AES@{AES}!decrypt@{decrypt}}
+\index{decrypt@{decrypt}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{decrypt()}{decrypt()}}
+{\footnotesize\ttfamily bool A\+E\+S\+::decrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Decrypts data from input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input buffer \\
+\hline
+{\em output} & Output buffer \\
+\hline
+{\em size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+conversation result (true if successful) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_engine_a04cc7c568562df7ff9eb541f6b519e46}{Engine}}.
+
+\mbox{\Hypertarget{class_a_e_s_a956bcc14baee462a539b91ae297ba70c}\label{class_a_e_s_a956bcc14baee462a539b91ae297ba70c}} 
+\index{AES@{AES}!encrypt@{encrypt}}
+\index{encrypt@{encrypt}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{encrypt()}{encrypt()}}
+{\footnotesize\ttfamily bool A\+E\+S\+::encrypt (\begin{DoxyParamCaption}\item[{const char $\ast$}]{input,  }\item[{char $\ast$}]{output,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Encrypts data from input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input} & Input buffer \\
+\hline
+{\em output} & Output buffer \\
+\hline
+{\em size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+conversation result (true if successful) 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{class_engine_ae0d5d15d1b7829fe42532d2f2bbbee84}{Engine}}.
+
+\mbox{\Hypertarget{class_a_e_s_a1b30cdda74547af13339513e25155dcf}\label{class_a_e_s_a1b30cdda74547af13339513e25155dcf}} 
+\index{AES@{AES}!getEncryptedSize@{getEncryptedSize}}
+\index{getEncryptedSize@{getEncryptedSize}!AES@{AES}}
+\doxysubsubsection{\texorpdfstring{getEncryptedSize()}{getEncryptedSize()}}
+{\footnotesize\ttfamily int A\+E\+S\+::get\+Encrypted\+Size (\begin{DoxyParamCaption}\item[{int}]{input\+Size }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+Get size of encrypted data based on input buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em input\+Size} & Size of input buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+output\+Size of encrypted data 
+\end{DoxyReturn}
+
+
+Reimplemented from \mbox{\hyperlink{class_engine_a2696fc0a6974da6256920bd3a9148a61}{Engine}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+algorithms/\mbox{\hyperlink{_a_e_s_8h}{A\+E\+S.\+h}}\item 
+algorithms/\mbox{\hyperlink{_a_e_s_8cpp}{A\+E\+S.\+cpp}}\end{DoxyCompactItemize}

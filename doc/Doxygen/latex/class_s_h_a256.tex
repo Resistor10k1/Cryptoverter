@@ -1,0 +1,90 @@
+\hypertarget{class_s_h_a256}{}\doxysection{S\+H\+A256 Class Reference}
+\label{class_s_h_a256}\index{SHA256@{SHA256}}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_s_h_a256_ab672831c542df07ff03ded25760feec2}\label{class_s_h_a256_ab672831c542df07ff03ded25760feec2}} 
+\mbox{\hyperlink{class_s_h_a256_ab672831c542df07ff03ded25760feec2}{S\+H\+A256}} ()
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_h_a256_ad8fd8e1bb7747817dc3f66207cf93bb1}{update}} (const uint8\+\_\+t $\ast$data, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Calculates \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} based inbut buffer (array) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_s_h_a256_a2c7de7d6a38eb285a77023b061366496}{update}} (const std\+::string \&data)
+\begin{DoxyCompactList}\small\item\em Calculates \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} based inbut string. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{class_s_h_a256_a4c6ec095facd53dcf84680317bb3d7c3}{digest}} ()
+\begin{DoxyCompactList}\small\item\em Returns the calculated \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} hash table. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static std\+::string \mbox{\hyperlink{class_s_h_a256_a74e4c2bc48e0eedcfa8773e9cc159c02}{to\+String}} (const uint8\+\_\+t $\ast$\mbox{\hyperlink{class_s_h_a256_a4c6ec095facd53dcf84680317bb3d7c3}{digest}})
+\begin{DoxyCompactList}\small\item\em Converts \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} hash table to printable H\+E\+X-\/\+Format. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_s_h_a256_a4c6ec095facd53dcf84680317bb3d7c3}\label{class_s_h_a256_a4c6ec095facd53dcf84680317bb3d7c3}} 
+\index{SHA256@{SHA256}!digest@{digest}}
+\index{digest@{digest}!SHA256@{SHA256}}
+\doxysubsubsection{\texorpdfstring{digest()}{digest()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ S\+H\+A256\+::digest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Returns the calculated \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} hash table. 
+
+\begin{DoxyReturn}{Returns}
+hash table 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_h_a256_a74e4c2bc48e0eedcfa8773e9cc159c02}\label{class_s_h_a256_a74e4c2bc48e0eedcfa8773e9cc159c02}} 
+\index{SHA256@{SHA256}!toString@{toString}}
+\index{toString@{toString}!SHA256@{SHA256}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily static std\+::string S\+H\+A256\+::to\+String (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{digest }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [static]}}
+
+
+
+Converts \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} hash table to printable H\+E\+X-\/\+Format. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em hash} & table \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+printable string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{class_s_h_a256_a2c7de7d6a38eb285a77023b061366496}\label{class_s_h_a256_a2c7de7d6a38eb285a77023b061366496}} 
+\index{SHA256@{SHA256}!update@{update}}
+\index{update@{update}!SHA256@{SHA256}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void S\+H\+A256\+::update (\begin{DoxyParamCaption}\item[{const std\+::string \&}]{data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} based inbut string. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Input string \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_s_h_a256_ad8fd8e1bb7747817dc3f66207cf93bb1}\label{class_s_h_a256_ad8fd8e1bb7747817dc3f66207cf93bb1}} 
+\index{SHA256@{SHA256}!update@{update}}
+\index{update@{update}!SHA256@{SHA256}}
+\doxysubsubsection{\texorpdfstring{update()}{update()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void S\+H\+A256\+::update (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{data,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Calculates \mbox{\hyperlink{class_s_h_a256}{S\+H\+A256}} based inbut buffer (array) 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Input buffer \\
+\hline
+{\em length} & Input buffer size \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+algorithms/\mbox{\hyperlink{_s_h_a256_8h}{S\+H\+A256.\+h}}\end{DoxyCompactItemize}

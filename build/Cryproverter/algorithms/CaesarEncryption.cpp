@@ -14,7 +14,7 @@ CaesarEncryption::CaesarEncryption(const char* newCharColl, int length)
     name = "Caesar Encryption (Default)";
     if(newCharColl != nullptr)
 	{	
-        name = "Caesar Encryption (Custom Character Set)";
+        name = "Caesar Encryption (Custom Character Collection)";
 		pCharColl = new char[length];
 		for(int i=0; i<length; ++i)
 		{

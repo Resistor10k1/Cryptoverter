@@ -1,4 +1,37 @@
-// https://github.com/System-Glitch/SHA256
+/**
+ ****************************************************************
+ * @file    SHA256.h
+ ****************************************************************
+ * @brief   This module implements a SHA256 hash algorithm.
+ *          Source: https://github.com/System-Glitch/SHA256
+ ****************************************************************
+ * @author  Jérémy Lambert, Florian Baumgartner
+ * @version 1.0
+ * @date    2020-12-08
+ ****************************************************************
+ * @copyright
+ * MIT License
+ *
+ * Copyright (c) 2019 Jérémy Lambert
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef SHA256_H
 #define SHA256_H
@@ -12,6 +45,11 @@
 class SHA256
 {
   public:
+    /**
+     ****************************************************************
+     * @brief  Constructor
+     ****************************************************************
+     */
     SHA256(): m_blocklen(0), m_bitlen(0)
     {
       m_state[0] = 0x6a09e667;
@@ -24,6 +62,13 @@ class SHA256
       m_state[7] = 0x5be0cd19;
     }
 
+    /**
+     ****************************************************************
+     * @brief  Calculates SHA256 based inbut buffer (array)
+     * @param  data         Input buffer
+     * @param  length       Input buffer size
+     ****************************************************************
+     */
     void update(const uint8_t * data, size_t length)
     {
       for (size_t i = 0 ; i < length ; i++)
@@ -39,11 +84,23 @@ class SHA256
       }
     }
 
+    /**
+     ****************************************************************
+     * @brief  Calculates SHA256 based inbut string
+     * @param  data         Input string
+     ****************************************************************
+     */
     void update(const std::string &data)
     {
       update(reinterpret_cast<const uint8_t*> (data.c_str()), data.size());
     }
 
+    /**
+     ****************************************************************
+     * @brief   Returns the calculated SHA256 hash table
+     * @return  hash table
+     ****************************************************************
+     */
     uint8_t * digest()
     {
       uint8_t * hash = new uint8_t[32];
@@ -52,6 +109,13 @@ class SHA256
       return hash;
     }
 
+    /**
+     ****************************************************************
+     * @brief  Converts SHA256 hash table to printable HEX-Format
+     * @param  hash table
+     * @return printable string
+     ****************************************************************
+     */
     static std::string toString(const uint8_t * digest)
     {
       std::stringstream s;

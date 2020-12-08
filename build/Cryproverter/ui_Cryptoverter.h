@@ -50,6 +50,7 @@ public:
     QPlainTextEdit *plainTextOutput;
     QHBoxLayout *horizontalLayout_3;
     QLabel *label;
+    QPushButton *buttonCopy;
     QPushButton *buttonSaveFile;
     QPlainTextEdit *plainTextInput;
 
@@ -210,6 +211,12 @@ public:
 
         horizontalLayout_3->addWidget(label);
 
+        buttonCopy = new QPushButton(Cryptoverter);
+        buttonCopy->setObjectName(QString::fromUtf8("buttonCopy"));
+        buttonCopy->setMaximumSize(QSize(120, 16777215));
+
+        horizontalLayout_3->addWidget(buttonCopy);
+
         buttonSaveFile = new QPushButton(Cryptoverter);
         buttonSaveFile->setObjectName(QString::fromUtf8("buttonSaveFile"));
         buttonSaveFile->setMaximumSize(QSize(120, 16777215));
@@ -244,6 +251,7 @@ public:
         buttonClear->setText(QApplication::translate("Cryptoverter", "Clear", nullptr));
         buttonLoadFile->setText(QApplication::translate("Cryptoverter", "Load File", nullptr));
         label->setText(QApplication::translate("Cryptoverter", "Output:", nullptr));
+        buttonCopy->setText(QApplication::translate("Cryptoverter", "Copy to Input", nullptr));
         buttonSaveFile->setText(QApplication::translate("Cryptoverter", "Save File", nullptr));
     } // retranslateUi
 

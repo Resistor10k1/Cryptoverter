@@ -1,4 +1,38 @@
-// https://github.com/SergeyBel/AES
+/**
+ ****************************************************************
+ * @file    AES.h
+ ****************************************************************
+ * @brief   This module offers a set of functions encrypt end decrypt
+ *          data with the AES Algorithm.
+ *          Source: https://github.com/SergeyBel/AES
+ ****************************************************************
+ * @author  SergeyBel, Florian Baumgartner
+ * @version 1.0
+ * @date    2020-12-08
+ ****************************************************************
+ * @copyright
+ * MIT License
+ *
+ * Copyright (c) 2019 SergeyBel
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
 
 #ifndef _AES_H_
 #define _AES_H_
@@ -17,8 +51,23 @@ using namespace std;
 class AES : public Engine
 {
 public:
+  /**
+   ****************************************************************
+   * @brief  Constructor
+   * @param  keyLen       Selects the AES Key length (128, 192, 256)
+   ****************************************************************
+   */
   AES(int keyLen = 128);
 
+  /**
+   ****************************************************************
+   * @brief  Encrypts data from input buffer
+   * @param  input        Input buffer
+   * @param  output       Output buffer
+   * @param  size         Size of input buffer
+   * @return conversation result (true if successful)
+   ****************************************************************
+   */
   bool encrypt (const char* input, char* output, size_t size) override
   {
     createAesKey (privateKey);
@@ -29,8 +78,18 @@ public:
     return true; // Success
   }
 
+  /**
+   ****************************************************************
+   * @brief  Decrypts data from input buffer
+   * @param  input        Input buffer
+   * @param  output       Output buffer
+   * @param  size         Size of input buffer
+   * @return conversation result (true if successful)
+   ****************************************************************
+   */
   bool decrypt (const char* input, char* output, size_t size) override
   {
+    if ((int) size < Nk * 4) return false;      // Must be at least one complete block
     createAesKey (privateKey);
     unsigned char *out = DecryptECB ((const unsigned char*) input, size, privateKeyHash);
     memcpy (output, out, size);
@@ -38,20 +97,25 @@ public:
     return true; // Success
   }
 
+  /**
+   ****************************************************************
+   * @brief  Get size of encrypted data based on input buffer
+   * @param  inputSize    Size of input buffer
+   * @return outputSize of encrypted data
+   ****************************************************************
+   */
   int getEncryptedSize (int inputSize) override
   {
     return GetPaddingLength (inputSize);
   }
 
-  unsigned char *EncryptECB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned int &outLen);
-  unsigned char *DecryptECB(const unsigned char in[], unsigned int inLen, unsigned  char key[]);
-  unsigned char *EncryptCBC(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv, unsigned int &outLen);
-  unsigned char *DecryptCBC(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv);
-  unsigned char *EncryptCFB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv, unsigned int &outLen);
-  unsigned char *DecryptCFB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv);
-  void printHexArray (unsigned char a[], unsigned int n);
-
 private:
+  /**
+   ****************************************************************
+   * @brief  Creates a 32 Byte hash table from password with SHA256
+   * @param  key           Password as character string
+   ****************************************************************
+   */
   void createAesKey (const QString& key)
   {
     memset (privateKeyHash, 0, sizeof (privateKeyHash));
@@ -62,6 +126,14 @@ private:
     delete[] digest;
     //std::cout << SHA256::toString(digest) << std::endl;
   }
+
+  unsigned char *EncryptECB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned int &outLen);
+  unsigned char *DecryptECB(const unsigned char in[], unsigned int inLen, unsigned  char key[]);
+  unsigned char *EncryptCBC(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv, unsigned int &outLen);
+  unsigned char *DecryptCBC(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv);
+  unsigned char *EncryptCFB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv, unsigned int &outLen);
+  unsigned char *DecryptCFB(const unsigned char in[], unsigned int inLen, unsigned  char key[], unsigned char * iv);
+  void printHexArray (unsigned char a[], unsigned int n);
 
   void SubBytes(unsigned char **state);
   void ShiftRow(unsigned char **state, int i, int n);    // shift row i on n positions
@@ -85,9 +157,7 @@ private:
   void DecryptBlock(const unsigned char in[], unsigned char out[], unsigned  char key[]);
   void XorBlocks(const unsigned char *a, const unsigned char * b, unsigned char *c, unsigned int len);
 
-  int Nb;
-  int Nk;
-  int Nr;
+  int Nb, Nk, Nr;
   unsigned int blockBytesLen;
   uint8_t privateKeyHash [32];
 };

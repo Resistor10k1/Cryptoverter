@@ -1,3 +1,37 @@
+/**
+ ****************************************************************
+ * @file    Cryptoverter.cpp
+ ****************************************************************
+ * @brief   This module implements the main functionality of the application.
+ ****************************************************************
+ * @author  Florian Baumgartner
+ * @version 1.0
+ * @date    2020-12-08
+ ****************************************************************
+ * @copyright
+ * MIT License
+ *
+ * Copyright (c) 2020 Florian Baumgartner
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
 #include "ui_Cryptoverter.h"
 #include "Cryptoverter.h"
 #include "Algorithm.h"
@@ -42,7 +76,6 @@ Cryptoverter::~Cryptoverter ()
 {
   delete ui;
 }
-
 
 void Cryptoverter::on_buttonLoadFile_clicked()
 {
@@ -105,6 +138,7 @@ void Cryptoverter::on_buttonDirection_clicked()
 
 void Cryptoverter::on_buttonConvert_clicked()
 {
+  algorithm.getContent (OUTPUT).clear();
   QString input = ui->plainTextInput->toPlainText();
   algorithm.setPrivateKey (ui->lineEditPrivateKey->text());
   QString output;
@@ -173,6 +207,23 @@ void Cryptoverter::on_buttonClear_clicked()
   ui->plainTextOutput->clear ();
   ui->plainTextInput->setEnabled (true);
   ui->plainTextOutput->setEnabled (true);
+}
+
+void Cryptoverter::on_buttonCopy_clicked()
+{
+  algorithm.copyOutputToInput ();
+  fileLoading = true;                     // Ignore slot "textChanged" from next line
+  if (algorithm.isPrintable (INPUT))      // If content is not printable, dissable text editor
+  {
+    ui->plainTextInput->setEnabled (true);
+    ui->plainTextInput->setPlainText(algorithm.showContent (INPUT));
+  }
+  else
+  {
+    ui->plainTextInput->setEnabled (false);
+    ui->plainTextInput->clear ();
+  }
+  showDataInfo (algorithm.getContent (INPUT), algorithm.isPrintable (INPUT));
 }
 
 void Cryptoverter::showDataInfo (const QByteArray& data, bool printable)
