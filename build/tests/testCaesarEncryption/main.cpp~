@@ -1,0 +1,18 @@
+/*
+ * main.cpp
+ *
+ *  Created on: Dec 9, 2020
+ *      Author: Andri Trottmann
+ */
+
+#include <iostream>
+
+using namespace std;
+
+int main()
+{
+  cout << "Hello motherfucker!!" << endl;
+
+  return 0;
+}
+
