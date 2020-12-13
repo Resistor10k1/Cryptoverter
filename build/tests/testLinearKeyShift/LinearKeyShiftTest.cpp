@@ -10,15 +10,28 @@
 
 
 //---------------------------------------------------------------------------
-TEST(LinearKeyShiftTest, testLetter_A)
+TEST(LinearKeyShiftTest, testEncrypt)
 {
-  char myLetterSend = 'A';
+  char myLetterSend = 'y';
   char myLetterReceive;
   LinearKeyShift lks1;
   lks1.setPrivateKey("ab");
   
   lks1.encrypt(&myLetterSend, &myLetterReceive, 1);
   
-  EXPECT_EQ(myLetterReceive, 0);
+  EXPECT_EQ(myLetterReceive, "TODO!!!!!!!");
 }
 
+
+//---------------------------------------------------------------------------
+TEST(LinearKeyShiftTest, testDecrypt)
+{
+  char myLetterSend = 'TODO!!!!!!!!!';
+  char myLetterReceive;
+  LinearKeyShift lks2;
+  
+  lks2.setPrivateKey("ab");
+  lks2.decrypt(&myLetterSend, &myLetterReceive, 1);
+  
+  EXPECT_EQ(myLetterReceive, "TODO!!!!!");
+}
