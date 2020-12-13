@@ -12,13 +12,13 @@
 //---------------------------------------------------------------------------
 TEST(LinearKeyShiftTest, testLetter_A)
 {
+  char myLetterSend = 'A';
+  char myLetterReceive;
   LinearKeyShift lks1;
-  char myLetterSend = 'A'
-  char myLetterReceive
+  lks1.setPrivateKey("ab");
   
-  lks1.encrypt(&myLetterSend, &myLetterReceive, 1)
+  lks1.encrypt(&myLetterSend, &myLetterReceive, 1);
+  
   EXPECT_EQ(myLetterReceive, 0);
-  EXPECT_EQ(d1.getMonth(), 0);
-  EXPECT_EQ(d1.getYear(), 0);
 }
 
