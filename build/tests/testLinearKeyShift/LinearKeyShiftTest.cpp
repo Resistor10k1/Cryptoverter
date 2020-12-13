@@ -13,13 +13,13 @@
 TEST(LinearKeyShiftTest, testEncrypt)
 {
   char myLetterSend = 'y';
-  int myIntReceive;
+  char myLetterReceive;
   LinearKeyShift lks1;
   lks1.setPrivateKey("hsrost");
   
-  lks1.encrypt(&myLetterSend, &myIntReceive, 1);
+  lks1.encrypt(&myLetterSend, &myLetterReceive, 1);
   
-  EXPECT_EQ(myIntReceive, 112);
+  EXPECT_EQ(myLetterReceive, 'p');
 }
 
 
