@@ -33,5 +33,5 @@ TEST(LinearKeyShiftTest, testDecrypt)
   lks2.setPrivateKey("hsrost");
   lks2.decrypt(&myLetterSend, &myLetterReceive, 1);
   
-  EXPECT_EQ(myLetterReceive, 121);
+  EXPECT_EQ(myLetterReceive, 'y');
 }
