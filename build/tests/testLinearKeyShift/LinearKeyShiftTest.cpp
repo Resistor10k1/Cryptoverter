@@ -1,14 +1,58 @@
 /*
- * main.cpp
+ * LinearKeyShiftTest.cpp
  *
- *  Created on: Dec 9, 2020
- *      Author: Andri Trottmann
+ *  Created on: Dec 10, 2020
+ *      Author: David Schneider
  */
 
-#include <iostream>
-#include "CaesarEncryption.h"
+#include <gtest/gtest.h>
+#include "LinearKeyShift.h"
 
-using namespace std;
+
+/*
+ * Hilfsfunktion, nur zum Testen. 
+ */
+bool equalDates(const MyDate & date, int day, int month, int year)
+
+{
+  if (date.getDay(), day)
+    return false;
+  if (date.getMonth(), month)
+    return false;
+  if (date.getYear(), year)
+    return false;
+  return true;
+}
+
+//---------------------------------------------------------------------------
+TEST(LinearKeyShiftTest, testDefaultCtor)
+{
+  MyDate d1;
+  EXPECT_EQ(d1.getDay(), 0);
+  EXPECT_EQ(d1.getMonth(), 0);
+  EXPECT_EQ(d1.getYear(), 0);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 int main()
 {
