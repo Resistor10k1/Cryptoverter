@@ -19,19 +19,19 @@ TEST(LinearKeyShiftTest, testEncrypt)
   
   lks1.encrypt(&myLetterSend, &myIntReceive, 1);
   
-  EXPECT_EQ(myIntReceive, 17);
+  EXPECT_EQ(myIntReceive, 112);
 }
 
 
 //---------------------------------------------------------------------------
 TEST(LinearKeyShiftTest, testDecrypt)
 {
-  char myLetterSend = 'c';
+  char myLetterSend = 'h';
   char myLetterReceive;
   LinearKeyShift lks2;
   
   lks2.setPrivateKey("hsrost");
   lks2.decrypt(&myLetterSend, &myLetterReceive, 1);
   
-  EXPECT_EQ(myLetterReceive, "TODO!!!!!");
+  EXPECT_EQ(myLetterReceive, 121);
 }
